@@ -35,4 +35,13 @@ class TodoController extends Controller
         // リダイレクト処理
         return redirect()->route('todo.index');
     }
+
+    /** todo詳細表示処理 */
+    public function show($id)
+    {
+        $model = new Todo();
+        $todo = $model->find($id);
+
+        return view('todo.show', ['todo' => $todo]);
+    }
 }
