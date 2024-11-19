@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TodoRequest;
 use App\Todo;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class TodoController extends Controller
     }
 
     /** todo新規作成処理 */
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         $inputs = $request->all();
 
@@ -57,7 +58,7 @@ class TodoController extends Controller
     }
 
     /** todo更新処理 */
-    public function update(Request $request, $id)
+    public function update(TodoRequest $request, $id)
     {
         $inputs = $request->all();
         $todo = $this->todo->find($id);
